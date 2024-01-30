@@ -1,5 +1,4 @@
 import requests
-from page_parser import parse
 from bs4 import BeautifulSoup
 
 url = "https://en.wikipedia.org/wiki/Dachshund"
@@ -30,6 +29,15 @@ def get_citations_needed_count():
 get_citations_needed_count()
 
 def get_citations_needed_report():
+    """
+    Generate report displaying all the passages that require a citation on a wikipedia page
+
+    Param: 
+        url string
+
+    Output:
+        String report
+    """
 
     # Used ChatGPT to figure out the CSS selector
     citation_reference = soup.select('a[href="/wiki/Wikipedia:Citation_needed"][title="Wikipedia:Citation needed"]')
