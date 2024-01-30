@@ -35,10 +35,11 @@ def get_citations_needed_report():
     citation_reference = soup.select('a[href="/wiki/Wikipedia:Citation_needed"][title="Wikipedia:Citation needed"]')
 
     for citation_text in citation_reference:
+        
         parent_tag = citation_text.find_parent('p')
-        if parent_tag:
-            print(parent_tag.text)
-        else:
-            print("No citation needed tags found")
+
+        remove_citation_tag = parent_tag.text.replace("[citation needed]", "")
+        print(remove_citation_tag)
+
 
 get_citations_needed_report()
